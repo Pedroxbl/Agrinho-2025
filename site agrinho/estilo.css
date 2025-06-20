@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== Card ===== */
+.card {
+  width: 32vw;
+  max-width: 900px;
+  aspect-ratio: 3/5;
+  cursor: pointer;
+  position: relative;
+  background-image: url('tomate.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card input {
+  display: none;
+}
+
+/* ===== Conteúdo ===== */
+.conteudo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.conteudo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 49, 0, 0.466);
+  border-radius: 10px;
+  z-index: 1;
+}
+
+/* ===== Título ===== */
+.titulo {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  text-align: left;
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+.titulo h2 {
+  color: white;
+  font-weight: 900;
+  line-height: 1;
+  word-break: break-word;
+  transition: all 0.5s ease;
+}
+
+.titulo .antes {
+  display: block;
+  font-size: 10vh; /* Grande antes de clicar */
+}
+
+.titulo .depois {
+  display: none;
+  font-size: 4vh;
+}
+
+/* ===== Texto ===== */
+.texto {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2.2vh;
+  text-align: justify;
+  width: 90%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 2;
+  font-weight: 100;
+}
+
+/* ===== Quando CLICA ===== */
+.card input:checked ~ .conteudo .titulo {
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.card input:checked ~ .conteudo .titulo .antes {
+  display: none;
+}
+
+.card input:checked ~ .conteudo .titulo .depois {
+  display: inline;
+}
+
+.card input:checked ~ .conteudo .titulo h2 {
+  font-size: 4vh;
+}
+
+.card input:checked ~ .conteudo .texto {
+  opacity: 1;
+  top: 22%;
+  font-size: 2.5vh;
+}

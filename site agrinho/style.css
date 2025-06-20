@@ -124,7 +124,7 @@
 
   .card p {
     margin: 15px;
-    text-align: left;
+    text-align: justify;
     font-size: 13px;
     line-height: 1.4;
   }
@@ -193,7 +193,7 @@
 
   .item {
     width: 200px;
-    text-align: center;
+    text-align: justify;
   }
 
   .item .imagem {
